@@ -1,9 +1,4 @@
 #Q1:
-#Coins with values 1 through N (inclusive) are placed into a bag. All the coins from the 
-#bag are iteratively drawn (without replacement) at random. For the first coin, you are paid 
-#the value of the coin. For subsequent coins, you are paid the absolute difference between 
-#the drawn coin and the previously drawn coin. For example, if you drew 5,3,2,4,1, 
-#your payments would be 5,2,1,2,3 for a total payment of 13.
 
 #load library
 library(nortest)
@@ -25,9 +20,7 @@ Payment_sample <- function(obs, draws){
     #sample of 10 draws without replacement
     base_array = sample(1:draws, draws, replace=FALSE)
     
-    #Calculate Payment Value according to description ("For the first coin, you are paid the value 
-    #of the coin. For subsequent coins you are paid the absolute difference between the drawn coin and 
-    #the previously drawn coin)
+    #Calculate Payment Value according to description 
     payment = base_array[1]
     for (i in 2:length(base_array)){
       payment = payment + (abs(base_array[i] - base_array[i-1]))
